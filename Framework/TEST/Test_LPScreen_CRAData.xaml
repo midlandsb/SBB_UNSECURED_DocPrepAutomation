@@ -1,0 +1,1267 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="LPScreen_CRAData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/cv" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uc="clr-namespace:UiPath.CV;assembly=UiPath.CV" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_AmountRequested" Type="InArgument(x:String)" />
+    <x:Property Name="CRALoanType" Type="InOutArgument(x:String)" />
+    <x:Property Name="in_FINAL_LOAN_AMOUNT" Type="InArgument(x:String)" />
+    <x:Property Name="in_CLOSING_DATE_C" Type="InArgument(x:String)" />
+    <x:Property Name="in_MSANumber" Type="InArgument(x:String)" />
+    <x:Property Name="in_StateCode" Type="InArgument(x:String)" />
+    <x:Property Name="in_CountyCode" Type="InArgument(x:String)" />
+    <x:Property Name="in_CensusTract" Type="InArgument(x:String)" />
+    <x:Property Name="in_STREET1" Type="InArgument(x:String)" />
+    <x:Property Name="in_STREET2" Type="InArgument(x:String)" />
+    <x:Property Name="in_CITY" Type="InArgument(x:String)" />
+    <x:Property Name="in_N_STATE" Type="InArgument(x:String)" />
+    <x:Property Name="in_ZIP" Type="InArgument(x:String)" />
+    <x:Property Name="in_PRO_TAB_STATE_DESCRIPTION" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1094,2928</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="74">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Screen: CRA Data" sap:VirtualizedContainerService.HintSize="716,2863" sap2010:WorkflowViewState.IdRef="Sequence_45">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="CRALoanAmount" />
+      <Variable x:TypeArguments="x:String" Name="FinalLoanAmountTrimmed" />
+      <Variable x:TypeArguments="x:String" Default="000" Name="TrailingZeros" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Application: LaserPro" sap:VirtualizedContainerService.HintSize="654,2752" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="cb1f2c3f-c43e-4636-b6da-4f694c08a272" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="620,2461" sap2010:WorkflowViewState.IdRef="Sequence_355">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="558,52" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,844" sap2010:WorkflowViewState.IdRef="Sequence_344">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="22005485-bc25-4c4e-8c07-a0421d8798c9" DisplayName="CV Screen Scope 'client  Root_CRAData_Pa...'" sap:VirtualizedContainerService.HintSize="434,733" sap2010:WorkflowViewState.IdRef="CVScope_28" SendOnPremData="False" Version="V5">
+                    <p:CVScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_343">
+                          <p:CvGetTextWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: InputBox (366,45,1431,26)&quot; +&#xA;&quot;Anchor: Text 'Loan Type:' (33,52,57,15)&quot;]" DesignTimeCacheId="22005485-bc25-4c4e-8c07-a0421d8798c9" DesignTimeScaleFactor="1" DisplayName="CV Get Text - InputBox" sap:VirtualizedContainerService.HintSize="400,220" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_6" InformativeScreenshot="bf75955fa653c1e8ec03f34568465693" NumberOfScrolls="2" RefreshBefore="True" Result="[CRALoanType]" ScrollDirection="None" Version="V5">
+                            <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                              <uc:CvDescriptor Id="f61b0264-c517-4d5e-95b2-f6af4ba63f15">
+                                <uc:CvDescriptor.Anchors>
+                                  <x:Array Type="uc:CvElementDescriptor">
+                                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="33, 52, 57, 15" ElementType="Text" Text="Loan Type:" />
+                                  </x:Array>
+                                </uc:CvDescriptor.Anchors>
+                                <uc:CvDescriptor.Target>
+                                  <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="366, 45, 1431, 26" ElementType="InputBox" />
+                                </uc:CvDescriptor.Target>
+                              </uc:CvDescriptor>
+                            </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                          </p:CvGetTextWithDescriptor>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="400,92" sap2010:WorkflowViewState.IdRef="LogMessage_206" Level="Info" Message="[&quot;CRA Loan Type found: &quot; + CRALoanType]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </p:CVScope.Body>
+                    <p:CVScope.DesignTimeCache>
+                      <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+                    </p:CVScope.DesignTimeCache>
+                    <p:CVScope.DesignTimeCacheContainer>
+                      <uc:CvCacheContainer>
+                        <uc:CvCacheContainer.Caches>
+                          <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+                            <uc:CVCache DataSent="False" DisplayName="Screen CV Get Text - 'Loan Typ (Main)" Id="22005485-bc25-4c4e-8c07-a0421d8798c9" InformativeScreenshot="b34ace123cb1b24b14967e14c8f7e526" LogicalPosition="19, 110" OcrText="CRA Account Type: Loan Type: 01-Small business v Loan Amount ($000): 15 Loan No: 3040017683 Action Taken: 1-Loan originated v Action Taken Date: 05-12-2023 Business / Farm Gross Annual Revenue: 1-Less than or equal to $1 million v Income ($000): Affiliate: 1-Loan orig. / purchase by institution v Loan Address Data Copy Address Information of: {None} v Street: 606 SMITH AVE City: ROCKFORD State: IL Postal Code: 61107-4321 County: Geocode Census Tract Information MSA No: 40420 County Code: 201 v State Code: 17 ILLINOIS Census Tract: 0008.00" Position="19, 110" ScreenshotGuid="7e3ac7b1-d639-4a78-b7c7-963258efb7c7" ServerVersion="1">
+                              <uc:CVCache.CvAnchorRelations>
+                                <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="32">
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="1">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>65</x:Int32>
+                                        <x:Int32>66</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="25">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>84</x:Int32>
+                                        <x:Int32>85</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="22">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>76</x:Int32>
+                                        <x:Int32>77</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="28">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>12</x:Int32>
+                                        <x:Int32>13</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="7">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>69</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="0">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>63</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="30">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>40</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="27">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>28</x:Int32>
+                                        <x:Int32>29</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="32">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>20</x:Int32>
+                                        <x:Int32>21</x:Int32>
+                                        <x:Int32>22</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="29">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>55</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="3">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>8</x:Int32>
+                                        <x:Int32>9</x:Int32>
+                                        <x:Int32>10</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="6">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>20</x:Int32>
+                                        <x:Int32>21</x:Int32>
+                                        <x:Int32>22</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="4">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>38</x:Int32>
+                                        <x:Int32>39</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="31">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>15</x:Int32>
+                                        <x:Int32>16</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="10">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>0</x:Int32>
+                                        <x:Int32>1</x:Int32>
+                                        <x:Int32>2</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="12">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>3</x:Int32>
+                                        <x:Int32>4</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="24">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>80</x:Int32>
+                                        <x:Int32>81</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="26">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>61</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="2">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>68</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="23">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>73</x:Int32>
+                                        <x:Int32>74</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                  <uc:AnchorRelationInfo IsTargetText="False" Target="11">
+                                    <uc:AnchorRelationInfo.Anchors>
+                                      <x:Array Type="x:Int32">
+                                        <x:Int32>57</x:Int32>
+                                      </x:Array>
+                                    </uc:AnchorRelationInfo.Anchors>
+                                  </uc:AnchorRelationInfo>
+                                </scg:List>
+                              </uc:CVCache.CvAnchorRelations>
+                              <uc:CVCache.CvUiElements>
+                                <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="64">
+                                  <uc:CvElementInfo Category="InputBox" Region="893, 395, 101, 24" />
+                                  <uc:CvElementInfo Category="InputBox" Region="1246, 395, 543, 24" />
+                                  <uc:CvElementInfo Category="InputBox" Region="252, 432, 742, 25" />
+                                  <uc:CvElementInfo Category="InputBox" Region="371, 85, 369, 25" />
+                                  <uc:CvElementInfo Category="InputBox" Region="370, 241, 84, 23" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1778, 7, 26, 24" />
+                                  <uc:CvElementInfo Category="InputBox" Region="370, 162, 243, 25" />
+                                  <uc:CvElementInfo Category="CheckBox" Region="1046, 438, 14, 14" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1779, 45, 22, 25" />
+                                  <uc:CvElementInfo Category="Icon" Region="592, 164, 26, 21" />
+                                  <uc:CvElementInfo Category="InputBox" Region="368, 6, 1431, 25" />
+                                  <uc:CvElementInfo Category="InputBox" Region="247, 356, 1550, 25" />
+                                  <uc:CvElementInfo Category="InputBox" Region="366, 45, 1431, 26" />
+                                  <uc:CvElementInfo Category="Button" Region="591, 163, 49, 23" />
+                                  <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="263, 356, 1505, 24" />
+                                  <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="378, 7, 1421, 24" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1083, 105, 723, 16" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="276, 569, 588, 17" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1210, 569, 564, 18" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1181, 586, 612, 23" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1379, 569, 212, 17" />
+                                  <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="789, 338, 993, 17" />
+                                  <uc:CvElementInfo Category="InputBox" Region="1195, 549, 592, 25" />
+                                  <uc:CvElementInfo Category="InputBox" Region="252, 548, 657, 25" />
+                                  <uc:CvElementInfo Category="InputBox" Region="253, 586, 655, 27" />
+                                  <uc:CvElementInfo Category="InputBox" Region="1196, 588, 590, 24" />
+                                  <uc:CvElementInfo Category="InputBox" Region="253, 395, 457, 24" />
+                                  <uc:CvElementInfo Category="InputBox" Region="671, 200, 1134, 27" />
+                                  <uc:CvElementInfo Category="InputBox" Region="1080, 85, 724, 24" />
+                                  <uc:CvElementInfo Category="InputBox" Region="518, 316, 1268, 27" />
+                                  <uc:CvElementInfo Category="InputBox" Region="672, 239, 1126, 26" />
+                                  <uc:CvElementInfo Category="InputBox" Region="369, 122, 1435, 26" />
+                                  <uc:CvElementInfo Category="InputBox" Region="590, 162, 49, 25" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="884, 549, 26, 24" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1760, 588, 26, 24" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="884, 588, 25, 26" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1761, 549, 26, 24" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1780, 241, 20, 22" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1761, 317, 23, 25" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1779, 200, 23, 25" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="618, 164, 21, 21" />
+                                  <uc:CvElementInfo Category="ArrowButton" Region="1779, 123, 22, 25" />
+                                  <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="692, 396, 15, 20" />
+                                  <uc:CvElementInfo Category="ArrowButton" Confidence="Runtime" Region="1788, 86, 15, 20" />
+                                </scg:List>
+                              </uc:CVCache.CvUiElements>
+                              <uc:CVCache.OcrTexts>
+                                <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="87">
+                                  <uc:OcrTextInfo Region="32, 13, 25, 12" Text="CRA" />
+                                  <uc:OcrTextInfo Region="58, 13, 46, 12" Text="Account" />
+                                  <uc:OcrTextInfo Region="105, 13, 29, 15" Text="Type:" />
+                                  <uc:OcrTextInfo Region="33, 52, 26, 12" Text="Loan" />
+                                  <uc:OcrTextInfo Region="61, 52, 29, 15" Text="Type:" />
+                                  <uc:OcrTextInfo Region="375, 52, 48, 12" Text="01-Small" />
+                                  <uc:OcrTextInfo Region="425, 52, 47, 12" Text="business" />
+                                  <uc:OcrTextInfo Region="1782, 52, 14, 10" Text="v" />
+                                  <uc:OcrTextInfo Region="33, 91, 27, 12" Text="Loan" />
+                                  <uc:OcrTextInfo Region="61, 91, 45, 12" Text="Amount" />
+                                  <uc:OcrTextInfo Region="107, 90, 38, 15" Text="($000):" />
+                                  <uc:OcrTextInfo Region="722, 91, 14, 13" Text="15" />
+                                  <uc:OcrTextInfo Region="926, 91, 26, 12" Text="Loan" />
+                                  <uc:OcrTextInfo Region="955, 91, 20, 12" Text="No:" />
+                                  <uc:OcrTextInfo Region="1086, 91, 66, 12" Text="3040017683" />
+                                  <uc:OcrTextInfo Region="32, 129, 36, 12" Text="Action" />
+                                  <uc:OcrTextInfo Region="69, 129, 35, 12" Text="Taken:" />
+                                  <uc:OcrTextInfo Region="376, 129, 38, 12" Text="1-Loan" />
+                                  <uc:OcrTextInfo Region="416, 130, 56, 14" Text="originated" />
+                                  <uc:OcrTextInfo Region="1782, 130, 14, 10" Text="v" />
+                                  <uc:OcrTextInfo Region="32, 168, 36, 12" Text="Action" />
+                                  <uc:OcrTextInfo Region="69, 168, 32, 12" Text="Taken" />
+                                  <uc:OcrTextInfo Region="103, 168, 30, 12" Text="Date:" />
+                                  <uc:OcrTextInfo Region="375, 168, 64, 12" Text="05-12-2023" />
+                                  <uc:OcrTextInfo Region="33, 207, 46, 12" Text="Business" />
+                                  <uc:OcrTextInfo Region="80, 207, 7, 13" Text="/" />
+                                  <uc:OcrTextInfo Region="89, 207, 27, 12" Text="Farm" />
+                                  <uc:OcrTextInfo Region="118, 207, 31, 12" Text="Gross" />
+                                  <uc:OcrTextInfo Region="151, 207, 38, 12" Text="Annual" />
+                                  <uc:OcrTextInfo Region="192, 207, 49, 12" Text="Revenue:" />
+                                  <uc:OcrTextInfo Region="680, 207, 34, 12" Text="1-Less" />
+                                  <uc:OcrTextInfo Region="715, 207, 26, 12" Text="than" />
+                                  <uc:OcrTextInfo Region="743, 210, 13, 9" Text="or" />
+                                  <uc:OcrTextInfo Region="757, 207, 31, 15" Text="equal" />
+                                  <uc:OcrTextInfo Region="789, 208, 13, 11" Text="to" />
+                                  <uc:OcrTextInfo Region="804, 207, 13, 12" Text="$1" />
+                                  <uc:OcrTextInfo Region="820, 207, 37, 12" Text="million" />
+                                  <uc:OcrTextInfo Region="1782, 207, 14, 10" Text="v" />
+                                  <uc:OcrTextInfo Region="33, 246, 40, 12" Text="Income" />
+                                  <uc:OcrTextInfo Region="75, 246, 37, 14" Text="($000):" />
+                                  <uc:OcrTextInfo Region="537, 246, 46, 12" Text="Affiliate:" />
+                                  <uc:OcrTextInfo Region="679, 246, 38, 12" Text="1-Loan" />
+                                  <uc:OcrTextInfo Region="719, 247, 24, 14" Text="orig." />
+                                  <uc:OcrTextInfo Region="745, 246, 8, 12" Text="/" />
+                                  <uc:OcrTextInfo Region="754, 246, 50, 15" Text="purchase" />
+                                  <uc:OcrTextInfo Region="805, 246, 15, 15" Text="by" />
+                                  <uc:OcrTextInfo Region="821, 246, 55, 12" Text="institution" />
+                                  <uc:OcrTextInfo Region="1782, 246, 14, 10" Text="v" />
+                                  <uc:OcrTextInfo Region="41, 275, 27, 12" Text="Loan" />
+                                  <uc:OcrTextInfo Region="69, 275, 45, 12" Text="Address" />
+                                  <uc:OcrTextInfo Region="115, 275, 27, 12" Text="Data" />
+                                  <uc:OcrTextInfo Region="49, 323, 30, 15" Text="Copy" />
+                                  <uc:OcrTextInfo Region="80, 324, 44, 11" Text="Address" />
+                                  <uc:OcrTextInfo Region="126, 323, 63, 12" Text="Information" />
+                                  <uc:OcrTextInfo Region="191, 323, 15, 12" Text="of:" />
+                                  <uc:OcrTextInfo Region="527, 323, 38, 14" Text="{}{None}" />
+                                  <uc:OcrTextInfo Region="1765, 324, 14, 10" Text="v" />
+                                  <uc:OcrTextInfo Region="66, 362, 35, 12" Text="Street:" />
+                                  <uc:OcrTextInfo Region="261, 362, 21, 12" Text="606" />
+                                  <uc:OcrTextInfo Region="283, 362, 37, 12" Text="SMITH" />
+                                  <uc:OcrTextInfo Region="321, 362, 23, 12" Text="AVE" />
+                                  <uc:OcrTextInfo Region="66, 400, 25, 15" Text="City:" />
+                                  <uc:OcrTextInfo Region="261, 400, 62, 12" Text="ROCKFORD" />
+                                  <uc:OcrTextInfo Region="791, 400, 30, 12" Text="State:" />
+                                  <uc:OcrTextInfo Region="898, 400, 11, 12" Text="IL" />
+                                  <uc:OcrTextInfo Region="1044, 400, 32, 12" Text="Postal" />
+                                  <uc:OcrTextInfo Region="1078, 400, 32, 12" Text="Code:" />
+                                  <uc:OcrTextInfo Region="1255, 400, 63, 12" Text="61107-4321" />
+                                  <uc:OcrTextInfo Region="66, 439, 43, 15" Text="County:" />
+                                  <uc:OcrTextInfo Region="1064, 439, 50, 12" Text="Geocode" />
+                                  <uc:OcrTextInfo Region="40, 507, 40, 12" Text="Census" />
+                                  <uc:OcrTextInfo Region="81, 507, 28, 12" Text="Tract" />
+                                  <uc:OcrTextInfo Region="110, 507, 63, 12" Text="Information" />
+                                  <uc:OcrTextInfo Region="49, 555, 27, 12" Text="MSA" />
+                                  <uc:OcrTextInfo Region="78, 555, 20, 12" Text="No:" />
+                                  <uc:OcrTextInfo Region="257, 555, 35, 12" Text="40420" />
+                                  <uc:OcrTextInfo Region="959, 555, 40, 15" Text="County" />
+                                  <uc:OcrTextInfo Region="1001, 555, 32, 12" Text="Code:" />
+                                  <uc:OcrTextInfo Region="1201, 555, 20, 12" Text="201" />
+                                  <uc:OcrTextInfo Region="1766, 556, 13, 9" Text="v" />
+                                  <uc:OcrTextInfo Region="49, 594, 28, 12" Text="State" />
+                                  <uc:OcrTextInfo Region="79, 594, 33, 12" Text="Code:" />
+                                  <uc:OcrTextInfo Region="258, 594, 14, 12" Text="17" />
+                                  <uc:OcrTextInfo Region="274, 594, 47, 12" Text="ILLINOIS" />
+                                  <uc:OcrTextInfo Region="959, 594, 40, 12" Text="Census" />
+                                  <uc:OcrTextInfo Region="1000, 594, 29, 12" Text="Tract:" />
+                                  <uc:OcrTextInfo Region="1201, 594, 44, 12" Text="0008.00" />
+                                </scg:List>
+                              </uc:CVCache.OcrTexts>
+                            </uc:CVCache>
+                          </scg:List>
+                        </uc:CvCacheContainer.Caches>
+                      </uc:CvCacheContainer>
+                    </p:CVScope.DesignTimeCacheContainer>
+                    <p:CVScope.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                        <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_30" Image="[Image]" Language="en" Profile="Screen" Scale="1" Timeout="100000" />
+                      </ActivityFunc>
+                    </p:CVScope.OCREngine>
+                    <p:CVScope.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="98e3ff38-b688-4463-b0cf-e9a14a4be29c" InformativeScreenshot="a65e6994e368b7a1f4091a7ef6f18f53" Selector="&lt;ctrl automationid='Root_CRAData_Panel' /&gt;" WaitForReady="INTERACTIVE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </p:CVScope.Target>
+                    <p:CVScope.UseLocalServer>
+                      <InArgument x:TypeArguments="x:Boolean" />
+                    </p:CVScope.UseLocalServer>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </p:CVScope>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <Sequence DisplayName="Field: Loan Amount" sap:VirtualizedContainerService.HintSize="558,1244" sap2010:WorkflowViewState.IdRef="Sequence_345">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NGetText DisplayName="Get Text 'Loan Amount ($000)'" sap:VirtualizedContainerService.HintSize="496,52" sap2010:WorkflowViewState.IdRef="NGetText_66" ScopeIdentifier="cb1f2c3f-c43e-4636-b6da-4f694c08a272" TextString="[CRALoanAmount]" Version="V3">
+                <uix:NGetText.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="378, 195, 356, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'15'" FullSelectorArgument="&lt;ctrl automationid='Child6_Field' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child6_Field' role='editable text' /&gt;" Guid="14bbda3e-2513-4a70-b942-2496a0884323" InformativeScreenshot="b0bf731184b7e55d0423e2ab4fa86921.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="52, 198, 110, 16" ElementType="Text" FriendlyName="'Loan Amount ($000)'" FullSelectorArgument="&lt;ctrl automationid='PANEL_CRADATA_CHILD5_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_CRADATA_CHILD5_LABEL' role='text' check:text='Loan Amount ($000):' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHIAAAAUCAYAAABRcGk6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKkSURBVGhD7Vc7bgIxEM2dtlqJWyBRbMMVtoi0UgquQAqkNJwARUIp9gYUUQqugWi4wsTj78ysbSAJCVm5eMqu12O/eW88Jg+n0wkK/j+KkSNBMXIkKEaOBMXIkaAY+WPYw/rpGXbH2LfbIxi5X8N8tvwbIv0CJlULm0Pk270COU+dXj0sJhVUlUG7Ofh5+/Ucajs+Xe7g6NegMTz3WEy/mIh4jrswsl808Ng1MMsQ/W2gmGk+6vTNZ7DcHfU7itxu3u2J7GG7tUYOzJ7aGIyvveHauHYDh2wMPqeL/Q6MVAQbte/HH3aECLJGolaPVnhv6segtRqD+enUaw60DiYlY9Sz/EZxgZGmelzbqFzlKOhKcuOkPZjNX+HFxfkKi0BVYKOJ8ipHGOJb34IwibCnq1QzN88lGELfUzxTa9G96JrIs2qfYcWMHOajTxvq5/66cVoMqRjxLDmcMdKYSHszko71ailQ7YU2a8QriScbFcgJifzqcGfoPUhSNS0WTJiYQtek7zouwVPGUcROhuFK70Gem8Z3jSQeSX5njLRtj46xedgSXOUqJKolKYrcU7xzwcQdQRLEO5YlT0TMcbnmG0XMSL3nUwdd4wr/tkb67xbfMBKFJe2NbJgTyK9jx0MLcwhr/j8jVWsld72c59ccaB1yS8bg+9eNREESrRXn10FYHL/uREYqVgHnupbJk0obqWMSrZU9i3xyPOOch/P0mqtXxcMa+RZ48b1p4RseLjfN/2yM/ZbQmBup7qDhycDFyLjbUEGbZ8fbrrvuRKaqixTIpUbiO+XCf6AY0cz4lP2bk+Xp9aBrWVy8t9CInDSmNy3CTAzVI21kwRXA4pDdxJ5IWZg/BlHIAsXIr4K1wNsDTyO94iSKkSNBMXIkKEaOAif4BNzucf/isHKdAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NGetText.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NGetText>
+              <Sequence DisplayName="Trimming the Final Loan Amount" sap:VirtualizedContainerService.HintSize="496,675" sap2010:WorkflowViewState.IdRef="Sequence_356">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[FinalLoanAmountTrimmed]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[in_FINAL_LOAN_AMOUNT.Replace(".0","")]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_210" Level="Info" Message="[&quot;Final Loan Amount Trimmed: &quot;+FinalLoanAmountTrimmed]" />
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,325" sap2010:WorkflowViewState.IdRef="Sequence_359">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[FinalLoanAmountTrimmed]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[in_FINAL_LOAN_AMOUNT.Replace(",","")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_211" Level="Info" Message="[&quot;Final Loan Amount Trimmed: &quot;+FinalLoanAmountTrimmed]" />
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
+                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[FinalLoanAmountTrimmed]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Left(FinalLoanAmountTrimmed,FinalLoanAmountTrimmed.Length-3).Trim]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_209" Level="Info" Message="[&quot;Final Loan Amount Trimmed: &quot;+FinalLoanAmountTrimmed]" />
+              </Sequence>
+              <If Condition="[CRALoanAmount = FinalLoanAmountTrimmed]" sap:VirtualizedContainerService.HintSize="496,322" sap2010:WorkflowViewState.IdRef="If_61">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="300,140" sap2010:WorkflowViewState.IdRef="Sequence_348">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="258,52" sap2010:WorkflowViewState.IdRef="LogMessage_208" Level="Info" Message="[&quot;CRA Loan Amount matches the Final Loan Amount Trimmed&quot;]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="300,140" sap2010:WorkflowViewState.IdRef="Sequence_347">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Loan Amount ($000)'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="258,52" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="cb1f2c3f-c43e-4636-b6da-4f694c08a272" Text="[FinalLoanAmountTrimmed]" Version="V3">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="378, 195, 356, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'45'" FullSelectorArgument="&lt;ctrl automationid='Child6_Field' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child6_Field' role='editable text' /&gt;" Guid="70e02c2b-1b84-45c7-9fe3-98900f73e804" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWgAAAAaCAYAAACaeMarAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE2SURBVHhe7dotcsJgFIZR9hSHYwGVCGRNdhDRJbAAREU1njXUs4JuISYq6pZQflIg1DSTK86ZeYZp8e98c4dZXdchScqXgZakpF0Gela8SJIS9HCgAZiWgQZIykADJGWgAZIy0ABJGWiApAw0wNiaXVTFItafp7+jiV1VRFGcmpex/Tp91WOgAUbVxn6zPAxxb6DbfWxWj0e5z0ADjOnwen4rP+K9uhno13VcHtQDDDTAaLpTRjfM58/zv7uTx/nEMY9y4CltoAFG0uyqWBxX+Wag++7u01cGGmAE7X4Tq3IbP2/jJwN9vFGvHr6iDTTAv7v5lcbTc4aBBpjQHycOP7MDmMrvge7OH8vLq3ro9GGgAdIy0ABJGWiApAw0QFIGGiCpwYGWJE3f3UBLknJloCUpZXV8A5ml4KmOHpwNAAAAAElFTkSuQmCC" InformativeScreenshot="04b342783ec4880b3b68da27d1e3eae8.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="52, 198, 110, 16" ElementType="Text" FriendlyName="'Loan Amount ($000)'" FullSelectorArgument="&lt;ctrl automationid='PANEL_CRADATA_CHILD5_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_CRADATA_CHILD5_LABEL' role='text' check:text='Loan Amount ($000):' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHIAAAAUCAYAAABRcGk6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKaSURBVGhD7Vc9cioxDH534gJcYCm5QIZyh3L7UGbo0mboHiVtKDN06ZmtuQBX0JPWli3LPwReEpIdF9+w9lry5++TtcOf8/kMFb8f1ciRoBo5ElQjR4Jq5EhQjfwsnPbw9LiFY+rdN8AZedqvYL68D5F+s4DJbA2HxLufCuI8Zb36DSwmE5gMmMH6wOtOsF81dn4Ky+3R55AxwdlTMT1sFipe4QcYiSTbB+jaeZHo94LELPDB27eaL2F7pDGJjOa92hvZ72BnjYzMntoYim/YcGPcbH0ox9BzodjvbyQSbHHf9zt2hBhlI0mrByu8M/Vdt1ZrcHA7Tc5Ia2dSPibOF+KykUP12BaA4MrhSuJ53x7s5i9/XZyrsAT6TWuIBlVOsMR33ILoEGJPrtRh7QUuzhA5zvHM5ZJ7yZzEE3V5fA6NjM5jbhvpx788L4shFxM+aw6XjBxMlL2ZSKd6tRYIhUi2EYXgsGmBWEji17hvhtnDH6oJisW3J51Tjk1cmqeOk0jdDMtVfgeDsxn8r5Heo5hf2Ujb9uRcsI5aAlcuIl0teVH0nuFYCaa+Ef6AuK4ND+9FLHG55p1EykgE7vnUddBy4X+pkf4943YjSVjR3vyGJYF8HjMvWhjD5fyFRmJr9d96vc7njLR2Z8vH0Ph2I0mQTGul9Y0TluavvJGJijVruWWqQ2WNNDHp1ho+h+cp8cxwjtbhGHM+vyAPa+Sb46X2loU/8OCzGf4XY+y7tMbKyCZ1MyiZmOcN2TwzP4Ouu+5G5qrLF8hHjaSx5IIQ64xodn4q/+aUeTo9ZC6LD++tNPI3LdRbFmE+RupRMLLiClBx6G5ib6QuzE+DKmSNauSNCFrgl4Nuo/zExahGjgTVyJGgGjkKnOEf2xF2Vfgy1C4AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NTypeInto>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="558,52" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,192" sap2010:WorkflowViewState.IdRef="Sequence_357">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Field: CRA Loan Type" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="CRALoanTypeList" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NGetAttribute Attribute="items" DisplayName="Get Attribute 'Loan Type'" sap:VirtualizedContainerService.HintSize="388,207" sap2010:WorkflowViewState.IdRef="NGetAttribute_1" ScopeIdentifier="cb1f2c3f-c43e-4636-b6da-4f694c08a272" Version="V3">
+                      <uix:NGetAttribute.Result>
+                        <OutArgument x:TypeArguments="x:String">[CRALoanTypeList]</OutArgument>
+                      </uix:NGetAttribute.Result>
+                      <uix:NGetAttribute.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="391, 155, 1430, 26" DesignTimeScaleFactor="1" ElementType="DropDown" FriendlyName="'Hfs.Client.Framework.Vi…'" FullSelectorArgument="&lt;ctrl automationid='Child4_Field' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child4_Field' role='combo box' /&gt;" Guid="9d8cae75-b1c3-4c43-be76-535f2708693c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABZoAAAAeCAYAAACliaubAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ2SURBVHhe7dwxSxxpAMfhfCfByrQrCKm22sIDsU1CKkFkwcJW8AN4cERsErE+g5BaCFjKNTGt4NnZHby378y7s+/sju7OjZoLPA/8IDNuZnbbP8O8uru7C5IkSZIkSZIk/dcMzZIkSZIkSZKkThmaJUmSJEmSJEmdqg3Nr5beSJIkSZIkSZI0t9q2XDsY/REAAAAAAB5jaAYAAAAAoBNDMwAAAAAAnRiaAQAAAADoxNAMAAAAAEAnhmYAAAAAADoxNAMAAAAA0EnrofnH53fh9dJSWBrVP/gW7tP50o/w+d3rhvPTrsLhoLxGbOPj93S+q5twtjMIe1//Hv073mMjzF46/0xX8Vq9J/z+AAAAAAAv7/r6OpycnKSjZufn5+Hy8jId1bUbmi/2w2r/IHwrVuSLsL/aDwflQRqg+2FruBkGjw7N0+Ps6Pj30/A0U+1LD80AAAAAAL++ra2t4qHg4+PjdKYujszLy8thfX09nalrNTRf7K+GD6eTgTaOy9OjctO5uocG4KdgaAYAAAAAaCs+0by9vR1WVlbC0dFROluKx/F8/Hv8XJMWQ3N8LcageoK5EJ9w/nAa8sl2/tAcwtXhICyt7YWZrffqMAw2PoYv8e/xtRqjf3+/OQs7vfIVG2t7X9O94ljcq169UXyuOr/g0Hz6qbpu8/+fPS6+d7pn+V0a7vdl9BvSZ2qv1Ii/LZ3Pf/vsNZvPAQAAAAA8p/v7+7C5uVnskuMnm8dPMvf7/XB7e1uca/JThubo5mwn9OKYWo28I2mMLQfaOOL2JqNsMTjPe0K5Yfht/Hx23XQ8uecDQ3O8/2B6HJ++X/Z74m8Z3yMN6OOvEn/7IA7ITddsvA8AAAAAwPPLx+bd3d2FRubo2Yfmv/74LSzHQTm282f4J50fK57ezcfZbJCNf5s8FTw1HOdPCI+aHYrnPNGcL7nVfR8ZmqeH5MJj95scV6N6XnGdpms2nQMAAAAAeBn52LzIyBy1GJqf6h3N07KBdtGhOX5u6vUTzz80J2ngfvDVGdX9JsfVE8zpLzNq10yazgEAAAAAvIA4NscnmhcZmaNWQ3PxBHP/IJQPNV+E/dV+/QnnkflD81U4HGZP6+avxKgG39JDQ3PxhHD1uXi+7RPNvWzALY/H94n3rP5WfLe1+tAcVa+3WGxoLkfjpu+S8RoNAAAAAOAX1W5oHolPNY9f/5A/3Ty2yBPN9VdJZEPugkNz+e/x/98Iw2H7J5rfD99W36H21HAxLqdrr70Pw7fpevn56jsvODSPTL8+o/i+TddsvA8AAAAAwP9X66EZAAAAAAByhmYAAAAAADoxNAMAAAAA0ImhGQAAAACATgzNAAAAAAB0YmgGAAAAAKCTuUOzJEmSJEmSJEnzqm3L+YEkSZIkSZIkSW0zNEuSJEmSJEmSOmVoliRJkiRJkiR16C78C7E6gq96wnl0AAAAAElFTkSuQmCC" InformativeScreenshot="132f6fd1d04a05c962bdfcad285dc5a8.png" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="53, 160, 56, 16" ElementType="Text" FriendlyName="'Loan Type'" FullSelectorArgument="&lt;ctrl automationid='PANEL_CRADATA_CHILD3_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_CRADATA_CHILD3_LABEL' role='text' check:text='Loan Type:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADwAAAAUCAYAAADRA14pAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF9SURBVFhH7ZQ7boRADIZzJyokboFEQcMV6JBScAWaSGk4AYqUihtQcw1EwxWc8XgenmHCKrussgKKX7sYj8efH7wtywJn0gV8dF3AR9eJgccWiqyBYXYdnqa+hiSKIPJVdjCF/HfS/wEbjdAWGTTDHHi3vy7gNTAmFAdHbmwLiM04ltBN1p41X/Cpz6VbhXSB+zqBtBlg1u9x9OX5HupE3PFtV8Hxw/xjP5d1MW8AEywPvEpIiSDJToVI1UUUo+wmx9/KS8rLA++jswgsYEzB8Vnd4eeORZJ+fwYWQXPP5vipJFTFdTIcHs/4z678pPiz6qrsFv9PMnFDH8BfpuoBYExAd1HYTVUfBRYSsXIFIn+l/QYwW7Ut3T/S6B/bBNC+T4dRVOiP95zZEThiq8EKLnNhxTdax3aBzdKjdAC6yNhZJSWkspdVtV+HhXgByUYdrip2J/8ueGNNTdoCfjHZj5W2ETAf6Xv0msDeupAOCkxrEtrHI3f4iToZ8AI/5aOoIC4CDOsAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NGetAttribute.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NGetAttribute>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="LogMessage_207" Level="Info" Message="[CRALoanTypeList]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                  </Sequence>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="558,52" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="512,192" sap2010:WorkflowViewState.IdRef="Sequence_358">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Field: Action Taken" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_349">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <p:CVScope ContinueOnError="{x:Null}" DelayBefore="{x:Null}" ScopeId="{x:Null}" Server="{x:Null}" CvMethod="ElementDetection, OCR" DesignTimeCacheId="9d300ba9-a839-407a-9156-6be40d7aec55" DisplayName="CV Screen Scope 'client  FullScreenPanel2'" sap:VirtualizedContainerService.HintSize="434,561" sap2010:WorkflowViewState.IdRef="CVScope_29" SendOnPremData="False" Version="V5">
+                      <p:CVScope.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="CVSessionData" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_351">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:String" Name="CRAActionTaken" />
+                            </Sequence.Variables>
+                            <p:CvGetTextWithDescriptor DelayScreenshotAfterScroll="{x:Null}" Descriptor="[&quot;Target: InputBox (384,150,1429,27)&quot; +&#xA;&quot;Anchor: Text 'Action Taken:' (43,158,72,12)&quot;]" DesignTimeCacheId="9d300ba9-a839-407a-9156-6be40d7aec55" DesignTimeScaleFactor="1" DisplayName="CV Get Text - InputBox" sap:VirtualizedContainerService.HintSize="400,220" sap2010:WorkflowViewState.IdRef="CvGetTextWithDescriptor_7" InformativeScreenshot="56ba38c0c2489ae92972dcb97a506501" NumberOfScrolls="2" RefreshBefore="True" Result="[CRAActionTaken]" ScrollDirection="None" Version="V5">
+                              <p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                                <uc:CvDescriptor Id="9045db92-ff37-43a4-9682-764fbadb2cd1">
+                                  <uc:CvDescriptor.Anchors>
+                                    <x:Array Type="uc:CvElementDescriptor">
+                                      <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="43, 158, 72, 12" ElementType="Text" Text="Action Taken:" />
+                                    </x:Array>
+                                  </uc:CvDescriptor.Anchors>
+                                  <uc:CvDescriptor.Target>
+                                    <uc:CvElementDescriptor CellExtraInfo="{x:Null}" DesignTimeArea="384, 150, 1429, 27" ElementType="InputBox" />
+                                  </uc:CvDescriptor.Target>
+                                </uc:CvDescriptor>
+                              </p:CvGetTextWithDescriptor.DesignTimeDescriptor>
+                            </p:CvGetTextWithDescriptor>
+                          </Sequence>
+                        </ActivityAction>
+                      </p:CVScope.Body>
+                      <p:CVScope.DesignTimeCache>
+                        <uc:CVCache CvUiElements="{x:Null}" OcrTexts="{x:Null}" DataSent="False" />
+                      </p:CVScope.DesignTimeCache>
+                      <p:CVScope.DesignTimeCacheContainer>
+                        <uc:CvCacheContainer>
+                          <uc:CvCacheContainer.Caches>
+                            <scg:List x:TypeArguments="uc:CVCache" Capacity="1">
+                              <uc:CVCache DataSent="False" DisplayName="Screen CV Get Text - 'Action T (Main)" Id="9d300ba9-a839-407a-9156-6be40d7aec55" InformativeScreenshot="499fe3e407d37b8122336420834ea4c4" LogicalPosition="8, 80" OcrText="CRA Data CRA Account Type: v Loan Type: 01-Small business v Loan Amount ($000): 15 Loan No: 3040018442 Action Taken: 1-Loan originated v Action Taken Date: 05-09-2023 Business / Farm Gross Annual Revenue: 1-Less than or equal to $1 million v Income ($000): Affiliate: 1-Loan orig. / purchase by institution v Loan Address Data Copy Address Information of: {None} v Street: 606 SMITH AVE City: ROCKFORD State: IL Postal Code: 61107-4321 County: Geocode Census Tract Information MSA No: County Code: v State Code: {None} Census Tract:" Position="8, 80" ScreenshotGuid="eccfdad2-734f-448b-90de-0fb4eed42ea7" ServerVersion="1">
+                                <uc:CVCache.CvAnchorRelations>
+                                  <scg:List x:TypeArguments="uc:AnchorRelationInfo" Capacity="32">
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="2">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>68</x:Int32>
+                                          <x:Int32>69</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="3">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>78</x:Int32>
+                                          <x:Int32>79</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="32">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>84</x:Int32>
+                                          <x:Int32>85</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="4">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>15</x:Int32>
+                                          <x:Int32>16</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="13">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>72</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="0">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>66</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="36">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>31</x:Int32>
+                                          <x:Int32>32</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="35">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>44</x:Int32>
+                                          <x:Int32>45</x:Int32>
+                                          <x:Int32>46</x:Int32>
+                                          <x:Int32>47</x:Int32>
+                                          <x:Int32>48</x:Int32>
+                                          <x:Int32>49</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="38">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>23</x:Int32>
+                                          <x:Int32>24</x:Int32>
+                                          <x:Int32>25</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="34">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>58</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="37">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>18</x:Int32>
+                                          <x:Int32>19</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="7">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>26</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="8">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>11</x:Int32>
+                                          <x:Int32>12</x:Int32>
+                                          <x:Int32>13</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="6">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>41</x:Int32>
+                                          <x:Int32>42</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="15">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>2</x:Int32>
+                                          <x:Int32>3</x:Int32>
+                                          <x:Int32>4</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="10">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>6</x:Int32>
+                                          <x:Int32>7</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="33">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>81</x:Int32>
+                                          <x:Int32>82</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="1">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>64</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="5">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>71</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="31">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>76</x:Int32>
+                                          <x:Int32>77</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                    <uc:AnchorRelationInfo IsTargetText="False" Target="14">
+                                      <uc:AnchorRelationInfo.Anchors>
+                                        <x:Array Type="x:Int32">
+                                          <x:Int32>60</x:Int32>
+                                        </x:Array>
+                                      </uc:AnchorRelationInfo.Anchors>
+                                    </uc:AnchorRelationInfo>
+                                  </scg:List>
+                                </uc:CVCache.CvAnchorRelations>
+                                <uc:CVCache.CvUiElements>
+                                  <scg:List x:TypeArguments="uc:CvElementInfo" Capacity="64">
+                                    <uc:CvElementInfo Category="InputBox" Region="904, 421, 101, 24" />
+                                    <uc:CvElementInfo Category="InputBox" Region="264, 420, 455, 25" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1258, 421, 541, 25" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1206, 574, 590, 25" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1091, 114, 722, 24" />
+                                    <uc:CvElementInfo Category="InputBox" Region="264, 458, 740, 25" />
+                                    <uc:CvElementInfo Category="InputBox" Region="381, 268, 84, 24" />
+                                    <uc:CvElementInfo Category="InputBox" Region="383, 191, 220, 25" />
+                                    <uc:CvElementInfo Category="InputBox" Region="382, 114, 370, 25" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1771, 575, 27, 25" />
+                                    <uc:CvElementInfo Category="InputBox" Region="378, 73, 1431, 26" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1788, 37, 26, 25" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1789, 75, 23, 25" />
+                                    <uc:CvElementInfo Category="CheckBox" Region="1057, 464, 14, 15" />
+                                    <uc:CvElementInfo Category="InputBox" Region="257, 382, 1543, 25" />
+                                    <uc:CvElementInfo Category="InputBox" Region="381, 36, 1432, 24" />
+                                    <uc:CvElementInfo Category="Icon" Region="603, 193, 25, 20" />
+                                    <uc:CvElementInfo Category="Cell" Region="1085, 134, 736, 16" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="602, 192, 49, 23" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="602, 192, 26, 21" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="391, 36, 1418, 24" />
+                                    <uc:CvElementInfo Category="Button" Confidence="Runtime" Region="379, 75, 1424, 25" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="285, 595, 605, 16" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="838, 365, 943, 17" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="711, 249, 1074, 16" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1268, 154, 142, 112" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="835, 263, 965, 26" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1200, 402, 604, 18" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="1243, 419, 558, 23" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="563, 316, 1251, 26" />
+                                    <uc:CvElementInfo Category="Cell" Confidence="Runtime" Region="684, 57, 1097, 16" />
+                                    <uc:CvElementInfo Category="InputBox" Region="263, 574, 659, 26" />
+                                    <uc:CvElementInfo Category="InputBox" Region="1205, 612, 592, 25" />
+                                    <uc:CvElementInfo Category="InputBox" Region="265, 612, 656, 27" />
+                                    <uc:CvElementInfo Category="InputBox" Region="536, 343, 1257, 27" />
+                                    <uc:CvElementInfo Category="InputBox" Region="682, 266, 1133, 27" />
+                                    <uc:CvElementInfo Category="InputBox" Region="687, 227, 1127, 27" />
+                                    <uc:CvElementInfo Category="InputBox" Region="384, 150, 1429, 27" />
+                                    <uc:CvElementInfo Category="InputBox" Region="601, 191, 49, 24" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="895, 574, 27, 25" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="896, 613, 24, 25" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1772, 614, 25, 23" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1789, 267, 23, 25" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1772, 344, 23, 25" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1789, 229, 23, 25" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="629, 193, 20, 20" />
+                                    <uc:CvElementInfo Category="ArrowButton" Region="1790, 152, 22, 24" />
+                                  </scg:List>
+                                </uc:CVCache.CvUiElements>
+                                <uc:CVCache.OcrTexts>
+                                  <scg:List x:TypeArguments="uc:OcrTextInfo" Capacity="86">
+                                    <uc:OcrTextInfo Region="9, 9, 24, 12" Text="CRA" />
+                                    <uc:OcrTextInfo Region="35, 9, 26, 12" Text="Data" />
+                                    <uc:OcrTextInfo Region="43, 43, 25, 12" Text="CRA" />
+                                    <uc:OcrTextInfo Region="69, 43, 46, 12" Text="Account" />
+                                    <uc:OcrTextInfo Region="116, 43, 29, 15" Text="Type:" />
+                                    <uc:OcrTextInfo Region="1794, 43, 13, 11" Text="v" />
+                                    <uc:OcrTextInfo Region="44, 81, 26, 12" Text="Loan" />
+                                    <uc:OcrTextInfo Region="72, 81, 30, 15" Text="Type:" />
+                                    <uc:OcrTextInfo Region="386, 81, 48, 12" Text="01-Small" />
+                                    <uc:OcrTextInfo Region="436, 81, 47, 12" Text="business" />
+                                    <uc:OcrTextInfo Region="1793, 82, 14, 10" Text="v" />
+                                    <uc:OcrTextInfo Region="44, 120, 27, 12" Text="Loan" />
+                                    <uc:OcrTextInfo Region="72, 120, 45, 12" Text="Amount" />
+                                    <uc:OcrTextInfo Region="118, 120, 38, 14" Text="($000):" />
+                                    <uc:OcrTextInfo Region="733, 120, 14, 12" Text="15" />
+                                    <uc:OcrTextInfo Region="937, 120, 27, 12" Text="Loan" />
+                                    <uc:OcrTextInfo Region="966, 120, 20, 12" Text="No:" />
+                                    <uc:OcrTextInfo Region="1097, 120, 67, 12" Text="3040018442" />
+                                    <uc:OcrTextInfo Region="43, 158, 36, 12" Text="Action" />
+                                    <uc:OcrTextInfo Region="80, 158, 35, 12" Text="Taken:" />
+                                    <uc:OcrTextInfo Region="387, 158, 38, 12" Text="1-Loan" />
+                                    <uc:OcrTextInfo Region="427, 158, 55, 15" Text="originated" />
+                                    <uc:OcrTextInfo Region="1793, 159, 14, 10" Text="v" />
+                                    <uc:OcrTextInfo Region="43, 197, 36, 12" Text="Action" />
+                                    <uc:OcrTextInfo Region="80, 197, 33, 12" Text="Taken" />
+                                    <uc:OcrTextInfo Region="115, 197, 29, 12" Text="Date:" />
+                                    <uc:OcrTextInfo Region="386, 197, 63, 12" Text="05-09-2023" />
+                                    <uc:OcrTextInfo Region="44, 235, 46, 12" Text="Business" />
+                                    <uc:OcrTextInfo Region="91, 235, 7, 13" Text="/" />
+                                    <uc:OcrTextInfo Region="100, 235, 27, 12" Text="Farm" />
+                                    <uc:OcrTextInfo Region="129, 235, 31, 12" Text="Gross" />
+                                    <uc:OcrTextInfo Region="161, 235, 39, 12" Text="Annual" />
+                                    <uc:OcrTextInfo Region="203, 235, 49, 12" Text="Revenue:" />
+                                    <uc:OcrTextInfo Region="691, 235, 34, 12" Text="1-Less" />
+                                    <uc:OcrTextInfo Region="726, 235, 26, 12" Text="than" />
+                                    <uc:OcrTextInfo Region="754, 238, 13, 9" Text="or" />
+                                    <uc:OcrTextInfo Region="768, 236, 30, 14" Text="equal" />
+                                    <uc:OcrTextInfo Region="800, 236, 13, 11" Text="to" />
+                                    <uc:OcrTextInfo Region="815, 235, 13, 12" Text="$1" />
+                                    <uc:OcrTextInfo Region="831, 235, 37, 12" Text="million" />
+                                    <uc:OcrTextInfo Region="1793, 236, 14, 10" Text="v" />
+                                    <uc:OcrTextInfo Region="44, 273, 40, 12" Text="Income" />
+                                    <uc:OcrTextInfo Region="86, 273, 37, 14" Text="($000):" />
+                                    <uc:OcrTextInfo Region="549, 273, 45, 12" Text="Affiliate:" />
+                                    <uc:OcrTextInfo Region="691, 273, 38, 12" Text="1-Loan" />
+                                    <uc:OcrTextInfo Region="730, 274, 25, 14" Text="orig." />
+                                    <uc:OcrTextInfo Region="756, 273, 8, 13" Text="/" />
+                                    <uc:OcrTextInfo Region="765, 273, 50, 15" Text="purchase" />
+                                    <uc:OcrTextInfo Region="816, 273, 15, 15" Text="by" />
+                                    <uc:OcrTextInfo Region="832, 273, 55, 12" Text="institution" />
+                                    <uc:OcrTextInfo Region="1793, 274, 14, 10" Text="v" />
+                                    <uc:OcrTextInfo Region="52, 303, 27, 12" Text="Loan" />
+                                    <uc:OcrTextInfo Region="80, 303, 45, 12" Text="Address" />
+                                    <uc:OcrTextInfo Region="126, 303, 27, 12" Text="Data" />
+                                    <uc:OcrTextInfo Region="60, 350, 30, 15" Text="Copy" />
+                                    <uc:OcrTextInfo Region="90, 350, 45, 12" Text="Address" />
+                                    <uc:OcrTextInfo Region="137, 350, 64, 12" Text="Information" />
+                                    <uc:OcrTextInfo Region="202, 350, 16, 12" Text="of:" />
+                                    <uc:OcrTextInfo Region="538, 350, 38, 14" Text="{}{None}" />
+                                    <uc:OcrTextInfo Region="1776, 351, 14, 10" Text="v" />
+                                    <uc:OcrTextInfo Region="77, 389, 35, 12" Text="Street:" />
+                                    <uc:OcrTextInfo Region="272, 389, 21, 12" Text="606" />
+                                    <uc:OcrTextInfo Region="294, 389, 37, 12" Text="SMITH" />
+                                    <uc:OcrTextInfo Region="332, 389, 23, 12" Text="AVE" />
+                                    <uc:OcrTextInfo Region="77, 427, 25, 15" Text="City:" />
+                                    <uc:OcrTextInfo Region="272, 427, 62, 12" Text="ROCKFORD" />
+                                    <uc:OcrTextInfo Region="802, 427, 31, 12" Text="State:" />
+                                    <uc:OcrTextInfo Region="909, 427, 11, 12" Text="IL" />
+                                    <uc:OcrTextInfo Region="1055, 427, 32, 12" Text="Postal" />
+                                    <uc:OcrTextInfo Region="1089, 427, 32, 12" Text="Code:" />
+                                    <uc:OcrTextInfo Region="1265, 427, 64, 12" Text="61107-4321" />
+                                    <uc:OcrTextInfo Region="77, 465, 43, 15" Text="County:" />
+                                    <uc:OcrTextInfo Region="1075, 465, 50, 12" Text="Geocode" />
+                                    <uc:OcrTextInfo Region="51, 533, 40, 12" Text="Census" />
+                                    <uc:OcrTextInfo Region="92, 533, 28, 12" Text="Tract" />
+                                    <uc:OcrTextInfo Region="121, 533, 64, 12" Text="Information" />
+                                    <uc:OcrTextInfo Region="61, 581, 26, 12" Text="MSA" />
+                                    <uc:OcrTextInfo Region="89, 581, 20, 12" Text="No:" />
+                                    <uc:OcrTextInfo Region="970, 581, 40, 15" Text="County" />
+                                    <uc:OcrTextInfo Region="1012, 581, 32, 12" Text="Code:" />
+                                    <uc:OcrTextInfo Region="1777, 581, 13, 10" Text="v" />
+                                    <uc:OcrTextInfo Region="60, 619, 28, 12" Text="State" />
+                                    <uc:OcrTextInfo Region="90, 619, 32, 12" Text="Code:" />
+                                    <uc:OcrTextInfo Region="269, 619, 37, 14" Text="{}{None}" />
+                                    <uc:OcrTextInfo Region="970, 619, 39, 12" Text="Census" />
+                                    <uc:OcrTextInfo Region="1010, 619, 31, 12" Text="Tract:" />
+                                  </scg:List>
+                                </uc:CVCache.OcrTexts>
+                              </uc:CVCache>
+                            </scg:List>
+                          </uc:CvCacheContainer.Caches>
+                        </uc:CvCacheContainer>
+                      </p:CVScope.DesignTimeCacheContainer>
+                      <p:CVScope.OCREngine>
+                        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                          <ActivityFunc.Argument>
+                            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                          </ActivityFunc.Argument>
+                          <p1:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_31" Image="[Image]" Language="en" Profile="Screen" Scale="1" Timeout="100000" />
+                        </ActivityFunc>
+                      </p:CVScope.OCREngine>
+                      <p:CVScope.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1c872806-c843-44fe-af50-b3d8edddb944" InformativeScreenshot="8bf3dc77bdeef95175a783e20edb19c6" Selector="&lt;ctrl automationid='FullScreenPanel2' /&gt;" WaitForReady="INTERACTIVE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </p:CVScope.Target>
+                      <p:CVScope.UseLocalServer>
+                        <InArgument x:TypeArguments="x:Boolean" />
+                      </p:CVScope.UseLocalServer>
+                    </p:CVScope>
+                  </Sequence>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <Sequence DisplayName="Field: Action Taken Date" sap:VirtualizedContainerService.HintSize="558,81" sap2010:WorkflowViewState.IdRef="Sequence_350">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Action Taken Date'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="cb1f2c3f-c43e-4636-b6da-4f694c08a272" Text="[in_CLOSING_DATE_C]" Version="V3">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="378, 272, 211, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'editable text Date'" FullSelectorArgument="&lt;ctrl automationid='Date' idx='2' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Date' role='editable text' /&gt;" Guid="faeb5756-3e98-43be-96a5-7dae541c153b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANcAAAAaCAYAAAAkC8nfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB5SURBVHhe7dMxDYBQFMBAPKED/y6+BZggLEy8bndJJXRba52S5jOXFPXMte2HpMnecwH/vD8yFwwyF0TMBRFzQcRcEDEXRMwFEXNBxFwQMRdEzAURc0HEXBAxF0TMBRFzQcRcEDEXRMwFkc+5JA12zyVpNnNJSeu8ABKtycY1xfbQAAAAAElFTkSuQmCC" InformativeScreenshot="6bdd3d549ae9d672c6118ff83cc56bf4.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="52, 275, 98, 16" ElementType="Text" FriendlyName="'Action Taken Date'" FullSelectorArgument="&lt;ctrl automationid='PANEL_CRADATA_CHILD11_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_CRADATA_CHILD11_LABEL' role='text' check:text='Action Taken Date:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGYAAAAUCAYAAAB/NUioAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJHSURBVGhD7Ze7ccMwDIazkxbQAlKpBXwufS41gGvPoNKla9eewafaC2gFhOATAElHcZQc78Liv4Qv4Ac+Upd8LMsCVeWpgilUFUyhqmAKVQVTqCqYQhWBed5O0LVHuDz4/CrNE+zfPSv1vMGpa6BphHLxcf+wUW6mJ9xO3ToPG0qAQRM7GMc99Oc7mc9phmnfw/meWttO87TCz6+CGeB4efg5fXmbNXW/3x8OBovbneGON79XP+laUv8TDArhDMcLPMhcrI3AYLKdbkAiIPu04BruCc+7RZMCqLlZ9IyNZfddVcOjtYQYGOaj4fMOjN2jPak15sP7szVelRcZiykNhuXDelz8prV7E/1R55JeaCwbn4DhMPgtxTWX0O2Pz7iGYzJtgH6Lcc2NbSEuPuZyxkPsoOyLkTD079wr+qA3O8SyjXPNof7sXqMVYOg86YHsT9bLSzAsoBjLNa88mHk6iGJIga9yJSTB4NjdRP/adHEDDB2/QHyvkbkEwns0dnoBBj/7fg/5A8ED5jHzXmxMIg8mdcgVLUkH/T0Y/D0UQ/JjoxSUYegiiHQc9DMwwYeB4nOw2x+DSXuJZcGkTfnktujo1shzpMFffsreAiOagOfYi8H46Cl8JiMfXrLmdA9SYNAPfxX80xny8ZhZLwymkQGTa4xspnhJuEebVHMaoIjj1uSZKF8uv1UAo8bURz/C6AqPbiqum5jch2vid8CI/2OEV91wu9buRjiQJrP+kLGR9ZIFU1WcKphCVcEUqgqmUFUwRWqBT3mQN5R78NxrAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NTypeInto>
+            </Sequence>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="GeoMapFFIECMapping.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="558,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GeoMapFFIECMapping.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_STREET1">[in_STREET1]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_STREET2">[in_STREET2]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_CITY">[in_CITY]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_STATE">[in_N_STATE]</InArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_MSANumber">[in_MSANumber]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_StateCode">[in_StateCode]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_CensusTract">[in_CensusTract]</InOutArgument>
+                <InOutArgument x:TypeArguments="x:String" x:Key="io_CountyCode">[in_CountyCode]</InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_PRO_TAB_STATE_DESCRIPTION">[in_PRO_TAB_STATE_DESCRIPTION]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'MSA No'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,52" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="cb1f2c3f-c43e-4636-b6da-4f694c08a272" Text="[in_MSANumber]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="264, 656, 610, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'editable text'" FullSelectorArgument="&lt;ctrl automationid='PART_EditableTextBox' idx='2' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PART_EditableTextBox' role='editable text' /&gt;" Guid="3a489a07-08db-426f-a69b-9778077f58fc" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAmYAAAAaCAYAAAAdU5AZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACtSURBVHhe7dYxDYBQFMBAPKED/y6+BZggLKy8DndJPXRba52SJEmaz5hJkiRFesZs2w9JkiRN9h4zAAD+9X4wYwYAMMiYAQBEGDMAgAhjBgAQYcwAACKMGQBAhDEDAIgwZgAAEcYMACDCmAEARBgzAIAIYwYAEGHMAAAijBkAQIQxAwCIMGYAABHGDAAgwpgBAEQYMwCAiM8xkyRJ0mD3mEmSJGk2YyZJkpRonRcv5UkL1MCcAQAAAABJRU5ErkJggg==" InformativeScreenshot="4212d868fc2ee6df0847f2c70d34c220.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target DesignTimeRectangle="68, 659, 47, 16" ElementType="Text" FriendlyName="'MSA No'" FullSelectorArgument="&lt;ctrl automationid='PANEL_CENSUS_CHILD1_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_CENSUS_CHILD1_LABEL' role='text' check:text='MSA No:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADMAAAAUCAYAAAAgCAWkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGiSURBVFhH7VTbjcQgDLyeqIEWIqUDOlhRQDpYUUAaWNHGSVRAD2nBZ/NI7IXdy0c+oigfIyXG4Bl74GdZFrgKbjFnxS3mrLiomOjBagWjC03SsgRwI1+L4K0GpVSCth7i1/weck6zl3gYB4HHdkKKGQYYOgdFb2HANVPIBTcKEmF+go9sT3BgzAPMYGVcAMUYrKc1WB+3+HFiDDywgDg8TcHA9LRFDP2/50gEZ3D99588mswI7uVgHBn548RYmGecAh89dpmKvXAa1TY0Ka2QSCg5AtTxPJE00caCLI/EhGzZ1ZLvYqh+sbNSbIqFFxfdiPGxFsnx3OWYrCXuQC2ipZWEgPXMbX0Dq0N5mn1XMakGaxrP2ycm34lEvBdjmwlpSqugdwt+s6Rs2toEJoZi9Z5WfOJB6Iqp32Q5fun7hzDCtA9fxPrKfX7tCFJM/kcbzfPBYhJBenq3YtshuDZNJY9QSKAYYTF+brUGjzdiEGQdzV7UI2yW/jHZMGKiI6nI1vlVZNdSuTFtNztiahMZyWTjtdbeB+ACuMWcFbeYc2KBP0oJH1JO38YGAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                      <uix:Target DesignTimeRectangle="57, 610, 137, 16" FriendlyName="'app.prosuiteclient.exe …'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIkAAAAQCAYAAAAiTVxCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK3SURBVGhD7VbBbhQxDOWf+JF+BQf+gi/gzA1OHDlUSHBEHLisVCEOaIEDCFVFUFBZdQUMLWbsOIn9ktmZHU2LkBLpSZOJE9vPL565cfPeihoadqGJpGEUTSQNo2giaRhFE0nDKCoieUX3Ty8oje6c7hY2/wa33ncalB/bTx+r9ovg8Iw+T+QgxtdtvtLtyvr1YU3Ptn/o+O2bytr+8CJ5eELrPk9H+uE3Wi3kbDFwnD9/0ZPHlbUZODja0vehwk4VycIx7Qe+2L8XEwXCiYRvwpXeyqXQRAK4NpFwi7qgly+8gQMTJg21H5eREN33Oq9lofGaviRtf0imnfNz+qLsiAXOEHGfbmSvtHobZ/Sre1kQKaS++A/svObTikSfH6XPntq7uKO/4c82xntHRHpGT9Uec6jzqXZVP1DLIT6Ux+fvIgf1T1QWCRBfwJLVI98+DdwSqQKq3lD0Y+aTOxmcIf8CSbQAG7eJzdpM7iT83KcaY2S/6f/DxRQKl9bAFuMNwo0FGuYzxSSwQsBOYtYkZiMYjrPz4o5xSRymxhGTO0lIBIYciPswQPjHgQLbuSdL12uAM0pxwe1Skku7gL1EYkm0cxdTz8HG5AjrGIf3DwWHXH0dbNeqi4Ttv0DOyT+cXcwVRiSB2BqJjGEid4hEbeTmxIRGA4sF9mc4wB5POuSRbJHIjP9FJCKQ5N/aYW5XJpIenDTc5IOjc1rzXNZqhRsXCSMTwevZhyReaadIpAMk422Hzx/ylWPz7wWzRBKEuutzM0ck9gx53413kqJusk/nwGMxV3iRMOQQ6WUybKJCsr7nERIdFomzN8Wx77vtDzo2JKRhi4GAZGqk186PtmnYAstrm4dilkgYzIN4CcPsmysSV5vLjj5ssl3KWfz4mrg62CaAMRc5BJQiaWgANJE0jGBFfwHL3zUNbHC6wAAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'County Code'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,52" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="cb1f2c3f-c43e-4636-b6da-4f694c08a272" Text="[in_CountyCode]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="1176, 656, 544, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'editable text'" FullSelectorArgument="&lt;ctrl automationid='PART_EditableTextBox' idx='3' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PART_EditableTextBox' role='editable text' /&gt;" Guid="9a727d0f-da5f-4650-adff-f141f054af92" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAiQAAAAaCAYAAACHHEeEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAChSURBVHhe7dYxDYBAEABBPKED/y7OwlNBvqFlm5lkPewxM0uSJKnMkEiSpLx3SI7zkiRJatqHBADgL/t7GBIAIGFIAICcIQEAcoYEAMgZEgAgZ0gAgJwhAQByhgQAyBkSACBnSACAnCEBAHKGBADIGRIAIGdIAICcIQEAcoYEAMgZEgAgZ0gAgJwhAQByn0MiSZKU9AyJJElSlSGRJElxs25c1A9w9y0udQAAAABJRU5ErkJggg==" InformativeScreenshot="142f9244f173073627dd8c7aab6fe4f7.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target DesignTimeRectangle="947, 659, 71, 16" ElementType="Text" FriendlyName="'County Code'" FullSelectorArgument="&lt;ctrl automationid='PANEL_CENSUS_CHILD5_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_CENSUS_CHILD5_LABEL' role='text' check:text='County Code:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEsAAAAUCAYAAADFlsDIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHrSURBVFhH7ZbtjcMgDIZvp8zACpXYIBtUGSAbRAzQBU5Z4yQmyA5ZwYfDl3FCGlr1jh/8eNQSB3+8YLdf67pC4xpNrAKaWAU0sQpoYhXQxCpgJ9YyDyC6DroNCUqn9irQCmTIUcAwL8fvnYB13oYZlgNbDiLWAvMgoJMKdHim4TGVObyOBiXLD0MrCZ0YYF78M5P39CA5X+M9sfC0EqE+zQtiLTMMNyrU67wlFp6YVHr3QgSL81e/AxEC8aLp2n3/jm1jY3BfE4wybSfMJ8awPC/QdYfzy7skxpQwTtRXus/rwOM5sfDl20nv20BRTOs8Fn4mFkkab29ooXRfmhj3aTk/UJsTFTgKzm02r2ijtcfYGbGeJILXv2ctGtqWF0bXBTbaYpmRcH6zjL+etWjwubdFX5iHv3Ge4x+NIBZuFrmZ9RdiGbTqtyT9p38eSG4mx/jLifVDDsLZUrHSPHLEAb9torPIYIKNY1T/uA3pd2PDgsJfDp4IXR8kafb2OL940QEbazeL7rjmrbZvw5i/rYfakrod2Ta0uGT8daSniKck4lVNnG8COZu8wz0rSLrGYlJftojsOHD4fRbu3z/HXIioSf58wLN9ru4nYv03XNy6qEqs07lZAZWI5dogO7zroLI2rJsm1mVW+AXFh9WCC7pHHQAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                      <uix:Target DesignTimeRectangle="56, 610, 139, 18" FriendlyName="'app.prosuiteclient.exe …'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIsAAAASCAYAAABrcC10AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALBSURBVGhD7VaxbhQxEOWf+JF8RQr+gi+gpiMVJUWEBCWioDkpQhTogAKEIhAElJxyCiwJw86s7Z15tu98q81JSGPpSWt77Jl582zvnbsPF+RwtMDF4miGi8XRDBeLoxkuFkczKmJ5Q4/Orim17pIeFO32j8OPXQjKtvXXz0X7WXB8Tt8aOYjxdasfdK8wvz8s6cX6L52+f1eYm4ZcLI+/0LLP15B//JMWMzqdBRznr9/07GlhbgIOTtZ0UStwq1hmjmk38AH/M6s4EJlY+GTc6imdCy4WwN7FwlfXNb1+pccATJxctH27icSEdW/HuVFwPBcGKVyLSKru83d6aTbEAnuIyM9WslaeAB1n9BvWsjBSSL0IjnS/5FOLJXw/Sc9hsDdxR3/15xzjvS9iPafnwR5zKPMZ7Ip+oJY1PgKPLz9EDupPlxULFCCDJq3HeBpDAprQIKTiiUU/qt98s8Ee8q+QxAvQcavYtE3zzcLffaoxRvab/k9MTEMB0xzYYryDgGOh6nymmARaEHizqDmJWQmH4+ysyGNcEoeqscZON8uQEDTZGNdhoPAPBIXWfUtamC8B9shFBqctkJ3bDdhJLJpM3Tcx9RysVI4wj3FY/1B4yNXWQd9iZbGw/XfIOfmHvbO+AohlILhEJqNO6AaxBBs5STGxrQHGQts9DGCNJR/ySLZI6Ij/RSwilORf22Futy6WHpw8nOyDk0tacl/mSgXcLhbGSAjPjz6EgMI1i4QaQFLWtr5/zdcYmx0XTBLLINhNz9AUseg9ZLzbfrNkdZN1oQ88Zn2FXCwM2UzuOGk6YSE7jHMbEq6LxdirIunxbn1Fp4qM1HRREJBUifzS/tE2NV1oGdZ5BEwSC4N5EC9DU+umisXU5qajT6vRLuUsfmxNTB30ZYAxZzmMKIvF4SjAxeJohovF0QwXi6MRC/oHO0FYFBLWutUAAAAASUVORK5CYII=" SearchSteps="Image" TargetType="ImageBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'State Code'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,52" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="cb1f2c3f-c43e-4636-b6da-4f694c08a272" Text="[in_StateCode]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="264, 692, 633, 26" DesignTimeScaleFactor="1" FriendlyName="'Hfs.Client.Framework.Vi…'" FullSelectorArgument="&lt;ctrl automationid='Child4_Field' idx='2' role='combo box' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='Child4_Field' role='combo box' check:text='Hfs.Client.Framework.VirtualComboBoxItem [[Return_Value:0],[Display_Value:{None}]]' /&gt;" Guid="4f544221-9bdc-4e66-8d61-75612e6ac792" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAn0AAAAeCAYAAABZjKgQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKbSURBVHhe7d2/SutQAMdx3yng5J7pTk6FODm7Ck71TTqIm08geQcfoIN7kW7O5+akSUxiwEaqYM7nA18waf0z/jht7z3b7/dBkiRJy87okyRJSiCjT5IkKYEGo+8s+ydJkqSFNNh5g4vqQQAA/j6jDwAgAUYfAEACjD4AgAQYfQAACTD6AAASYPQBACRg/ujblWGdZ6HYbIdf92034WZdhl1zeTrbsCmykP/IzwYAWK7Zo29XrsOqHV1x9K1WYZUXYbD7fmz0VeqhOfp9AAAL9/r6Gp6enpqraWVZhpeXl+Zq6Fuj76ZdXPXoW1d/QG8IRj85+urTPqMPAEjL7e1tyLIsPD4+NneG4uA7Pz8PV1dXzZ2hk4y+cheHWB7WZTPzRqMvfk9e/ZHxD82y3mCrnlcUm/C8KT4/Vtl29/sv6Rp9AEB64knf3d1duLi4CA8PD83dg3gd78fH4/OmzB59cYh17+HrRl/9QCjyj6/b0VcPvvZ+NHpeUQ269ufFn92Ou8Hvqe6U61UzKkcDEwAgEe/v7+H6+ro+EGtP/NoTvsvLy/D29lbfmzJr9A3ezxf1R1+lG2q90bfd3IwGWm/AxdFXbKoZ1+iu43Py7pSvbXJsAgAkpD/87u/vjxp80elO+trr+CGL51OMvvZkb8xJHwCQtv7wO2bwRbNH3/R7+g6XUX0aGD/Re+zLu5OjL35ZhKz/WMd7+gAA4vCLJ33HDL7o5KPvMMqG/5ZePeC6l2k/f5Cj22+D6/FLvO33GX0AAHN9a/QN3tf329qXkI0+AICjzR59h9E18b9w/IrPp4gAAHxt/ugDAODPMfoAABJg9AEAJMDoAwBIwJejT5IkSctosPP6F5IkSVpmRp8kSVICGX2SJEmLbx/+A8DnoOorbIN7AAAAAElFTkSuQmCC" InformativeScreenshot="bafe28a410996a77e0191830844fcb4c.png" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target DesignTimeRectangle="68, 697, 60, 16" ElementType="Text" FriendlyName="'State Code'" FullSelectorArgument="&lt;ctrl automationid='PANEL_CENSUS_CHILD3_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_CENSUS_CHILD3_LABEL' role='text' check:text='State Code:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEAAAAAUCAYAAAA9djs/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGpSURBVFhH7VTbrcMgDL07ZQZWiMQG3SBigLtBxADdgEGYgB2ygosJEBsIqVr1i3wcKdiOH8ePv23bYGTcBLSEI+EmoCUcCTcB9GG1hGmadkgNluh+DRZbKDCubXcOB0bNoIxr6M6RCXBGgSBFO7PC0+K3BS0l6PDdw2cJ7P4nEMqASzJnYH3awu4KXxKAHZC6FfS3BCDxMy3+Y3xJwGY1yEkUDvbupNEMXfLdUeKQ7aRhcJFleX2CzyhrjvUbSVMfZX5UJ/9hpb5YnqmBdTx+BPNPtOOdCUD7ORVWOMfk2Eq1On0xXaFAog/5xXf4JoQE2/hmeUVdyOWKgAQWuE6SHawTdsNNyTYR1WHtTwD6eBRrmVfV5/hghBJfIf8i9slhbRPgcdwETgDKj4NFdTUB7+w298fRI6D2XxBQkd0GOYIL6TI6Ew0CqNy/2aRwAriug7h22SfC/7vgu/RRrQDRBVuyAnQ9MoocPY4JiImkkaFdQdazLASKdnKBhUxHHvvIfn5HsCIZkOTDjq4K98GLYrryCNI8PfZ6egQMipuAlnAk3AS0hONggxc8S7D/dFKpNAAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                      <uix:Target DesignTimeRectangle="59, 608, 139, 21" FriendlyName="'app.prosuiteclient.exe …'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIsAAAAVCAYAAAB2dR3MAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALSSURBVGhD7Za9bhQxEMfvnXiRPAUFb8ETUKeDipIiQoIyoqA5KUIU6IAChCIQhFM45QQsCcPO+GNn/mvfOctdENJY+knr9diej7+9O1sul+Q4LcxuHc7JcVpwsTjNuFicZlwsTjMuFqcZF4vTjBLLS7p/dkm5dRd0Txn+S26/66JTtq0/fSja74Sjc/rcmIPkX7f6SncK4zfHgo7Xv+n0zevC2N8TxPLwIy36eE3yj5Y039Omk2E/f/ykJ48LYxM4OFnTt1qBW8WyY5+uBx/wX3sTByJi4ZOx11O6K1wswI2Lha+uS3rxvGwgcOLkou3bVUpMnPdqGBsEx2PxJcVrEZOq+/ycvzQbfIE1RORnK5krnwDtZ9o3zmVhZJd6ETzQ/dKeWizx+VH+HEZ743far/45R3/viljP6Wm0xxjK+Yx2xX2glrV8xDw+e5ty0PbpmmEBRuik9QynMQagExqFVDyxuI/qN99ssIb8K2TxAtpv5Zu2ab5Z+LkPNfnI++b/E+NTKGAeA1v0Nwg4Faqez+yToAWBN4saE5+VcNjPzoo8+SV+qBrX2HqzhICgycI4Dx2FfyAotO7bpMXxErDGWGRw2mKyx3aBa4lFJ1P3jU99DlYqRhhHP+z+UHiI1dZB32JlsbD9F4g57w9rj/oVerGEBJeSydQTukEs0UZOUgpsq4Op0HYNA8yxyYc4si0mdOB/EYsIJe+v7TC2vYulf+Dg4WQfnFzQgvsyVirgdrEwQ0J4fNhDElC4ZjGhBgjK2tbXr+01+GbfC5PEEgS76TM0RSx6DXnfbb9ZRnWTebEPeRz1KwSxMLKY3HHSdMCS7PieWwi4LhZjr4qk33fr73SqkpGbLgoCQZWSX1o/2eamCy2vdRyRSWJhOA+yS2hq3lSxmNpcdfR+NdjlmGUfWxNTB30ZoM+jGMoMYnGcLbhYnGZcLE4zLhanGReL08ic/gBpUTZ8HlJDFwAAAABJRU5ErkJggg==" SearchSteps="Image" TargetType="ImageBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="558,52" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NKeyboardShortcuts>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Census Tract'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,52" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="cb1f2c3f-c43e-4636-b6da-4f694c08a272" Text="[in_CensusTract]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="1176, 694, 544, 22" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'editable text'" FullSelectorArgument="&lt;ctrl automationid='PART_EditableTextBox' idx='4' role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PART_EditableTextBox' role='editable text' /&gt;" Guid="7ed490b9-e367-4b15-bef2-6c5573fd8e8e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAiQAAAAaCAYAAACHHEeEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAChSURBVHhe7dYxDYBAEABBPKED/y7OwlNBvqFlm5lkPewxM0uSJKnMkEiSpLx3SI7zkiRJatqHBADgL/t7GBIAIGFIAICcIQEAcoYEAMgZEgAgZ0gAgJwhAQByhgQAyBkSACBnSACAnCEBAHKGBADIGRIAIGdIAICcIQEAcoYEAMgZEgAgZ0gAgJwhAQByn0MiSZKU9AyJJElSlSGRJElxs25c1A9w9y0udQAAAABJRU5ErkJggg==" InformativeScreenshot="d50355ee0a6d455beaa7a2118ab2f6e1.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target DesignTimeRectangle="947, 697, 68, 16" ElementType="Text" FriendlyName="'Census Tract'" FullSelectorArgument="&lt;ctrl automationid='PANEL_CENSUS_CHILD7_LABEL' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PANEL_CENSUS_CHILD7_LABEL' role='text' check:text='Census Tract:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEgAAAAUCAYAAAAuoXvLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGpSURBVFhH7ZXRbcQgDIa7U2ZghUhscBtUDJANTgzQBaoM0BGYgB2ygnsGEwyBODpddX3g4X/gbPDPZ4f72LYNhvoagAQNQIIGIEEDkKABSNABkF8NqGmCKUiDdWX8bXIW9O6LSVtwrfwXiQHysBpVFXTwdV/B7+v/IPQ5g1l9I/aE/ApmNrD6RuyhDAg79MfdeI3eBMhZDdq6Q0KWA6vTaKvdYNz3nWMMMsbSp6AMTmJ9Ob6mCab8vpfqjNDYBe64V+FFuc9Ul/YiDJVij+fjh69jzZoDAZK6gkXZe8SoRwgphnkEr9mZE0CXJ7gBiDWsFPfNvPGcymcHkDBBBfmkWLjel9fUyeLSJ4CoRtHxphqAKrDlHw1B6TWg2cisHVA4tNfBk0P6gCgndPjKJxbz0+W6zRIAlffIufj73IJ/FVDqeP3NLguuY6xlWgSEYiYwvtfA31Vj7HvdDjoH1D2/V4t5S/u5fwYIhcXzQxkfPYqFAmlsHyJTXUBFPjPGf1c3+LzRZWnSYj577w46B9Q9P+UeauQ7o28B0FCtAUjQACRoABI0AJ1qg19VKgY6pRBmgwAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                      <uix:Target DesignTimeRectangle="56, 610, 145, 17" FriendlyName="'app.prosuiteclient.exe …'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJEAAAARCAYAAADdaE77AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALCSURBVGhD7VbNbhQxDOadeJE+BQfegifg3BucOHKokOCIOHBZqUIc0AIHEKqKaEFl1RUwtJixx8nYX5Ld+VkWkBLpkyYTJ7Y/f/HMjZuHC6qomIMqoorZqCKqmI0qoorZqCKqmI2CiF7SvfMriqO5pLtZu/3j1rtGg/Jj/fFD1n4nOLqgTwM5CPE1q890O7O+Pyzp6foXnbx5nVnbLVIRPTilZcuDK8rRF1rsIZhR4Di//6DHjzJrE3BwvKavpcIPFdGOYxoHvvg/9yIaRCIivkl/9FbvClVEgH9GRNwCr+jFc/sOwIRKw27HdSBM973q13oh8pq+JG2vSLad83P8Ym2IBc4Q8Z+vZK98Smycwa/uZcHEkFpx3LfznE8rIn1+GD+rau/iDv7KvwUY7x0R8QU9UXvMIc+n2mX9QC1LfCiPz94GDsZ/Ar2IoDAJLJkt+turiVmiVWDZG45+zHxwJ4Qz5F8kihpg4zaxWZvBnYif21RDjOw3/v+4mLrCxjWwxXg7YYcClvmMMQmsULATmTWJ2QiK42y8+ENcEoep8RCM6kRdojDEIe7DBOAfCwRg555MXc8BzkjFB7dTi5DadRglIkuynbuYWg5WJkdYxzi8fxAE5OrrYLteXkRsfwY5R/9wdjIfABBRR3yOZEaZ6A0iUhu5eSHhrYEHAfgzHGCPLwrkEW2R6B7/i4hEQNG/tcPc/pqIWjAp0AkOji9pyXNZyxV2u4gYPVG83vsQYjLtGol2gGS9bfn8kq8+Nv9eMElEnZA3fc6miMieIe+b7Z0oqZvs0znwmMwHIBURQ5xIr5RhiZAi6HseHRFlETl7Uzz7vll/oxNDUhy2WAhINleU3PnBNg4rAHlt81BMEhGDeRAv3TD7porI1ea6ofer3i7mLH58TVwdbJPAmJMctiMvooqKEagiqpiNKqKKmVjQb6IN+DIcn6FgAAAAAElFTkSuQmCC" SearchSteps="Image" TargetType="ImageBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'NavNextButton'" sap:VirtualizedContainerService.HintSize="558,52" sap2010:WorkflowViewState.IdRef="NClick_125" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="cb1f2c3f-c43e-4636-b6da-4f694c08a272" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="1778, 814, 70, 22" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'NavNextButton'" FullSelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='NavNextButton' role='push button' check:text='NavNextButton' /&gt;" Guid="51f14aa5-cd99-4e58-996a-1fa00c3c85ee" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAaCAYAAAAQXsqGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGZSURBVFhH7ZUhb8JAFMf5TqdQU9STNA0SNbdkpqmbRzYYDBjUGtSSzSEb8EViMP0QNf/dXftKCwe7AddkyxO/5PVd75L75f3bXlEUYH6GRVnS+/xag7lMLSrP87qpauYIi7KERVnCoixhUZawKEvcidqtEHkCQZy2+5spnsMEWbP3B3AryvfhewHitNG/R5Q+M0SSGdYc41hUiPkigt8U41DUfvmK8WxrXLsX56KSbIPpaIAwycr+iajdKoInBIQiiJFSr6rzvNo/X+go6/ckZ5HWHLCeDCH6Y8y2p2v30YEoWUs5o8GxJlFKSHPaNtNRJWCHVeRrucfeyZnVHiOHNSZDgf54hq1p/Qa6ESWf6ws3RKkeTQgxIHFqv5qgerLOz7zGfvkiz+s/LIqdiSovLj/s721R5ggpVOR+L6oUJPD09mFcv5XuREl01NSfsBE9jyJJ+zS3RU9JerQgolNRNCV1vCTt+JUffd2jSdKTSD8DJdDT716eRDe4E/XPYFGWsChLWJQlLMqSliiSxJipRVHBXIdFWVHgG8ciB+XZ1SjhAAAAAElFTkSuQmCC" InformativeScreenshot="99f72d396f06372e837a22f44c9cdb0e.png" ScopeSelectorArgument="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1795, 817, 36, 16" ElementType="Text" FriendlyName="'Next _&gt;'" FullSelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;&lt;ctrl automationid='PART_Caption' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='NavNextButton' /&gt;&lt;ctrl automationid='PART_Caption' role='text' check:text='Next _&amp;gt;' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAD/Rn+7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFWSURBVEhL7ZMtb4RAEIb7n1ahqsBfQggSVdekhuDOnyQYzJ05VYKqP0kOD/LMmf0bb3cXBhZYSFvS5pognmSZ2Y+Hmd0nzjkemU1wLZvgWv6RYJ0jchi8uBhOuiZ4CTNUeuwPGQq6LlzHQ1xok9YIqj1DZJUh90VGgiGOpwiuLvSLgrfzG4K0NOaIiWBWXZH4NsKsauIjwTqP4DAGJvFiFBRrx5y3648ndWXUPMHk6ijuuBx2YFaAtBznGgyCYiykfLsfk6AU0at7Tfz24Bp55Kqf6mOjPds1Ru4XHHYMVpCiHOXMguK7O0gTlDGqCGGTsFwvK9ZVcrrnErfzq9jPmrR8VrA5UDyY96GguVUS2drvCzZiDM/7D2N+XlCgWipfttZih1pP6xQ/a7GUmxMjFgWpKl0bBcM2N49JxahyqvL0yKS4o+bOV36ZXvBB2QTXsgmug+MT3NnwCkcfXtgAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="62, 0, 1796, 846" FilePath="C:\LASERPROTEST\CFI\app.prosuiteclient.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ7SURBVFhHzVdpbBRlGN6fJsaABhE1Ktq0paVgQaFWqq2CpEFiqGJUVBLjmRh+4RVPokQj0ShGBE0ICfUANBLx1kYTNfUgjQfSBjCRa+ab6R7d3c50u7MzPL7vO1+73e7GRGU2Psnb3Z3je57vPb/GzLObcLLNmFqH5JoH8XfIbHgJxmm1iESAOWO2fLoffarpyuF+1gPjjFkRCWA7sxFqThsKR45qylIUjhtQdS0RCiAzptQhsfo+wPc17QQEAQY7V0YrgM04vR7Ojvc0aykyGzdFL4BDYc2/Cn48rmlLEb0AMs729HMvaspSVEWAOX02VOPl8E2laYuojgAy9kL21dc1bRFVE2BOa4C9tAvwPE0donoCuDmddzG8/gFNHaJ6Asi4RTvv7tbUIaorgPIg8/ImTR3ifyCABoI5vXF8gERpHAL3g481dYhYfMUqWM1Xhg9Q7zam1CISUbSm1dxOHTGhqUPE+E8wlMZo389wut9B6uGnIKLmdcA8v1leZFFi1Ne5nETcWSSOBVYSydf4PrVhY2q9uF41tdEI/lJIJyLm/Xm4rDYZQToDb+AA3M97kN2yFalH1iFx+z1Uy9fDWnA11KwWmDNJ4DlzxsnE+Pu5c6FqF8BqXUrT8F5kt26Hb9l65VLE1EWXwG5fhuT9a+XB0b19CJIpfbsCaIwG2WH4SsE79Afyv/yG0R/2Ivdtrxh/9/btR+HYcQSuq1+qDKd7ByUhu0tcpeNPv625VyDedSuGHn0azls7RZTsoFDQr/43+LaN1NrHJDzlZTiDjIYHH5c4dmwcc1XfArtjuRww0uuexfC2box88RXyv+5D4egxBKkhBCMjocgTJ0Im/qTfgePAN0zxUPqZ5ym/2mXDzFcqgL2hk04S7YJmIeYE4uOVargM6sL58qwIHKsYygNVt5DmfgeF81o66dyA+PKbMLjsRtiLr4PVskTW4TXH19acRQGc3SSAXZ997Q3kvumFd/CQjNAgkQx3mExKKAqHj8D7vR+5776H+/4eZGjKpR56Eomb74C9qBOq5lKqGBJ4Sk1o7MVpRMobHOPTJgK4vOy2TuR6vi66798i70mCct44b+/C0BPrkVi5WtzOngp7DbmfN0wVI53QXrKi4mFhIoJhynyKI2e+t3+ArB/egYPiDd8elPsVD58aXNZcMc6bOyUB7Wu6JCwxrmV2ZyWM/tSH9PoNFJbbYC1cLMdoc+Y8GatinCPkbtXYKvd50cSqu5B64HFkXtkMd88nkqSTu5+APM2bjmVe2KivFOEPxpG8e43ETOLHiTa5+000vs73ya0cTumaXEHcOTlBmxZJYvJ/S9zUuBp8yxIuacUlyOeRuOVOGKfWhItPSpp/bGMCWdxYryGxqqFVPFYmgDuZtNRKi51M06LKBLi7PxxvEtWwMgG53h9DdRUejsLKBHDTsajrVUdEE/4CP8GkR51aL7EAAAAASUVORK5CYII=" InformativeScreenshot="429afc417746538fa5973db535fd2089.png" Selector="&lt;wnd app='app.prosuiteclient.exe' cls='HwndWrapper*' title='LaserPro' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

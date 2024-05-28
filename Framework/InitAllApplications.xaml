@@ -1,0 +1,310 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" this:Initialize_Applications.in_Environment="Test" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Environment" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1094,2589</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Management.Automation</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="88">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1092,2524" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1030,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
+    <If Condition="[in_Environment = &quot;Test&quot;]" sap:VirtualizedContainerService.HintSize="1030,2250" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="996,1177" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: CreditQuest Launch Page" sap:VirtualizedContainerService.HintSize="954,711" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V2" WindowResize="Maximize">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,494" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Credit Manager'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/default.htm" DesignTimeRectangle="694, 270, 531, 44" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Credit Manager'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='P' class='' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Credit Manager&amp;#xD;&amp;#xA;End-to-end commercial credit management' /&gt;" Guid="ad046eee-0fec-49d5-97df-5710880bdd4d" ImageBase64="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" InformativeScreenshot="ce623d0079771e22938f3368c51d6598.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CreditQuest Launch Page' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="627, 203, 117, 23" ElementType="Text" FriendlyName="'CREDITQUEST'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='lbl' tableRow='1' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='lbl' type='' tag='LABEL' class='application' aaname='CREDITQUEST' check:innerText='CREDITQUEST' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHkAAAAbCAYAAABYxiAYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOHSURBVGhD7Zgtl6swEIbvX8OgUChUFQpVhaqqQlWh8FVVKBSqqgpVVYVCVaGq3htKEiYQWii799xd8p4zJl9M5gnJJH9g9OtlIK9ABvIKZCCvQAbyCmQgr0AG8gpkIK9AA8j1LUO0dWFbFixmtuNhG2W41bzBUwUOvF41G64fIrlUvB1XlSLQthcWIGVdqjQY1Om/36hCGoh2B+YRU3FQ+o7a4dlaqp2zB8du621ngzC5sC+oKg7dGOoQJB5BKvvR9lqjg9Q3ZHEI37V5vQ3H2yJKC9x5k0/np0Cu0q2EOzC7BdFqDLIwG15y5W2ZFkCWZnsssJT010B+OWd3j7OMsArtSyE38eELTGe2GHMx5PKEDW9kByeUj7b4fj12DsgJ6CeFKkMonQ2RCyYUcs8BKgpZNHuUGXYu72uzMWXQNZAV0Xq6QImuMVz+PTs44srHrvI9KddDmwd55PtPPXDed39vmImGd5wjR5YPwzZhflwS8jUWAzqIyU/YOkEGewZiBDLTJRJtiWMLIDd6nPfyb3Okc0sh0+Dq5jys+x7Id+Knh+TGi99qNuTpHVqNQ+4m5uFY8sKFkFHnCEV/74h22KWQr4gdUR/hwkuF6jzkdRb8U9v5eyCr87Zs/3kOi510XLMhEye1AetrBDLdrp2YhZHrzZksAjYKWevfUshv5kzPP+7M55A1pvwczdbs9XIDlngFMfJykHFy/UvIOusnSQby0BTIrZ5ZfuAMYG+1BGdD7nUgGaVeryHvz7295odv1x4/dz6H/BrCQI8KxWkHTyaxW2QDJrMhNw69SkLIYGOJF8lUB6v0RydeXQJZHj1eZiFSVsUFES+fDflOYtOLG/3eMGwfQFavE/QKlXRObFj5s1S3cu/Iwy4w+/PIdj0T8rdeocqjvDZamxgFH5teoayN2DmYWIwcXt7F6MFun4FchC5Jj6f9ySVOG9HOxeEiJsjKg+FC6/QJZKYmyOp5QGzsMYSuPho0d3riJSBRyAOb8hiiaFoQpj8ANaoZOFfftjGX+UFcfHkmMwvE4E18pjyGKPoQcqN7kc571lQceLCJifu2ha04SBZAnvWsqWh6EPrPmvLb3g6Z/I2FapR5gtAnMXL9t8+gOpOQG9Ul8kT/rKl3fQFkIxbvIoYvgW+Q3N5eWv9rGchjqgvEvo9YOSJ+pgzkFchAXoEM5BXIQF6BDORfL+Avh1X6T9sKXW8AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,193" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_1" Version="V3" />
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="d3ce3eabe70967e179dd1ee8223493e1.jpg" Selector="&lt;html app='chrome.exe' title='CreditQuest Launch Page' /&gt;" Title="CreditQuest Launch Page" Url="http://tw-fcqap01/CreditQuest.Test/default.htm" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+          <uix:NCheckState DelayBefore="2" DisplayName="Check App State 'Desktop'" sap:VirtualizedContainerService.HintSize="954,338" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V3">
+            <uix:NCheckState.IfExists>
+              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Uipath Opened CQ Credit Manager&quot;]" />
+              </Sequence>
+            </uix:NCheckState.IfExists>
+            <uix:NCheckState.IfNotExists>
+              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;THROW: Credit Manager did not appear.&quot;]" />
+                <Throw Exception="[New ApplicationException(&quot;Credit Manager did not appear during intial all applications.&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              </Sequence>
+            </uix:NCheckState.IfNotExists>
+            <uix:NCheckState.Target>
+              <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_desktop.aspx" DesignTimeRectangle="192, 66, 1468, 28" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Desktop'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='xtdPdsHeaderTitle' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='xtdPdsHeaderTitle' type='' tag='TD' class='PDS_TITLE_TEXT' aaname='Desktop' check:innerText='Desktop' /&gt;" Guid="4e5382b7-f2e4-4145-ad22-33209c9ac1cb" ImageBase64="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" InformativeScreenshot="5013b95db040f1ac3884a1089eb4a380.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive" />
+            </uix:NCheckState.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NCheckState>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap:VirtualizedContainerService.HintSize="526,891" sap2010:WorkflowViewState.IdRef="Sequence_14">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: CreditQuest Launch Page" sap:VirtualizedContainerService.HintSize="484,711" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="6717e36c-40f7-4014-ac79-968dbd75df03" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,494" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Credit Manager'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6717e36c-40f7-4014-ac79-968dbd75df03" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="http://pw-fcqap01/CreditQuest/default.htm" DesignTimeRectangle="704, 229, 531, 44" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Credit Manager'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='P' class='' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Credit Manager&amp;#xD;&amp;#xA;End-to-end commercial credit management' /&gt;" Guid="4def55ce-5d48-4e3a-a069-b5d53fa8d997" ImageBase64="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" InformativeScreenshot="05539bccd189995398001ce1ddde402f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='CreditQuest Launch Page' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="689, 219, 547, 55" FriendlyName="'Credit Manager'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl class='tdDescription' tableRow='3' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl class='tdDescription' type='' tag='DIV' aaname=' &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9; &amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;&amp;#x9;' check:innerText='Credit Manager&amp;#xD;&amp;#xA;End-to-end commercial credit management' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,193" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NNavigateBrowser Action="CloseTab" DisplayName="Navigate Browser - Close Tab" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="NNavigateBrowser_2" Version="V3" />
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="0901c04817655ba56e53ad0fc4eaccd9.jpg" Selector="&lt;html app='chrome.exe' title='CreditQuest Launch Page' /&gt;" Title="CreditQuest Launch Page" Url="http://pw-fcqap01/CreditQuest/default.htm" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+          <uix:NCheckState DisplayName="Check App State 'Desktop'" sap:VirtualizedContainerService.HintSize="484,52" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="e7ea625f-fb74-43b2-9f21-07ca48712d92" Version="V3">
+            <uix:NCheckState.IfExists>
+              <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Uipath Opened CQ Credit Manager&quot;]" />
+              </Sequence>
+            </uix:NCheckState.IfExists>
+            <uix:NCheckState.IfNotExists>
+              <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;THROW: Credit Manager did not appear.&quot;]" />
+                <Throw Exception="[New ApplicationException(&quot;Credit Manager did not appear during intial all applications.&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_2" />
+              </Sequence>
+            </uix:NCheckState.IfNotExists>
+            <uix:NCheckState.Target>
+              <uix:TargetAnchorable BrowserURL="http://tw-fcqap01/CreditQuest.Test/CreditManager/html/prf_desktop.aspx" DesignTimeRectangle="192, 66, 1468, 28" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Desktop'" FullSelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='xtdPdsHeaderTitle' tableRow='1' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='AppIFrame' tag='IFRAME' /&gt;&lt;webctrl id='AppFrame' tag='FRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='xtdPdsHeaderTitle' type='' tag='TD' class='PDS_TITLE_TEXT' aaname='Desktop' check:innerText='Desktop' /&gt;" Guid="4e5382b7-f2e4-4145-ad22-33209c9ac1cb" ImageBase64="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" InformativeScreenshot="5013b95db040f1ac3884a1089eb4a380.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Credit Manager' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive" />
+            </uix:NCheckState.Target>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NCheckState>
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>
